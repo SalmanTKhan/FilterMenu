@@ -128,7 +128,18 @@ public class FilterMenu implements IMenu {
             popupMenu = null;
             return this;
         }
-
+        
+        public Builder addItem(Drawable icon, String desc) {
+            ImageButton view = (ImageButton) inflater.inflate(R.layout.menu_item, null, false);
+            view.setImageDrawable(icon);
+            view.setContentDescription(desc);
+//            TypedValue value = new TypedValue();
+//            ctx.getTheme().resolveAttribute(R.attr.selectableItemBackgroundBorderless, value, true);
+//            view.setBackgroundResource(value.resourceId);
+            addItem(view);
+            return this;
+        }
+        
         public Builder addItem(Drawable icon) {
             ImageButton view = (ImageButton) inflater.inflate(R.layout.menu_item, null, false);
             view.setImageDrawable(icon);
